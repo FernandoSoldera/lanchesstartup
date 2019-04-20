@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Startup Lanches</title>
+<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<div class="header">
+		<span>Startup Lanches</span>
+	</div>
+	<div class="content">
+		<div class="cart">
+			<div class="title">
+				<span>Carrinho</span>
+			</div>
+			<div class="cartContent">
+				<div class="order">
+				
+				</div>
+				<div class="total">
+					<span>Total do Pedido: <span id="spanTotal">R$ 0,00</span></span>
+				</div>
+				<div class="button">
+					<input id="buttonCloseOrder" class="disable" type="button" value="Fechar Pedido" onclick="closeOrder()">
+				</div>
+			</div>
+		</div>
+		<div class="products">
+			<div class="productList">
+				<div class="title">
+					<span>Produtos</span>
+				</div>
+				<div class="list">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modalBackground">
+		<div class="modal">
+			<div class="modalHeader">
+				<span id="spanTitleProduct">Nome</span>
+				<span class="btnCloseModal" onclick="closeModal();">X</span>
+			</div>
+			<div class="additionalPreview">
+				<img class="additionalImage">
+				<div class="additionalPreviewInfo">
+					<span id="spanDescriptionProduct">Descrição</span>
+				</div>
+			</div>
+			<div class="divAdditional">
+				<div class="additionalTitle">
+					<span>Adicionais</span>
+				</div>
+				<div class="listAdditional">
+				</div>
+			</div>
+			<div class="modalFooter">
+				<span>Subtotal: <span id="modalSubTotal">R$ 15,00</span></span>
+				<input class="addCart" type="button" value="Adcionar ao carrinho" onclick="addProductCart();">
+			</div>
+		</div>
+	</div>
+	
+	<div class="modalBackgroundCloseOrder">
+		<div class="modalCloseOrder">
+			<div class="modalHeader">
+				<span>Pedido realizado com sucesso!</span>
+				<span class="btnCloseModal" onclick="closeModalCloseOrder();">X</span>
+			</div>
+			<div class="modalOrderHeader">
+				<span>Pedido completo:</span>
+			</div>
+			<div class="orderModal">
+			
+			</div>
+			<div class="totalModal">
+				<span>Total do Pedido: <span id="spanTotalModal">R$ 0,00</span></span>
+			</div>
+		</div>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+	<script src="index.js"></script>
+</body>
+</html>

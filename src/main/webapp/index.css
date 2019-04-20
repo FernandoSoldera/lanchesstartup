@@ -1,0 +1,362 @@
+html, body
+{
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	height: 100%;
+	font-family: sans-serif;
+}
+.header
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100px;
+}
+.header span
+{
+	font-size: 34px;
+}
+.content
+{
+	display: flex;
+}
+.cart
+{
+	width: 350px;
+	border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    margin-left: 12px;
+    margin-right: 6px;
+    padding: 6px;
+}
+.cartContent
+{
+	height: calc(100% - 40px);
+	display: flex;
+    flex-direction: column;
+}
+.order
+{
+	height: 100%;
+}
+.total
+{
+    margin-bottom: 24px;
+}
+.products
+{
+	width: 100%;
+	border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    margin-left: 6px;
+    margin-right: 12px;
+    padding: 6px;
+}
+.title
+{
+	height: 40px;
+	font-size: 22px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#spanTotal
+{
+	color: #00b600;
+	font-size: 20px;
+}
+.button
+{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 12px;
+}
+.button input
+{
+    background-color: #b80000;
+    border: 0;
+    border-radius: 3px;
+    width: 100%;
+	color: yellow;
+	height: 40px;
+	outline: 0;
+	cursor: pointer;
+	font-size: 16px;
+}
+.button input:active
+{
+	opacity: 0.7;
+}
+.product
+{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	border-bottom: 1px dashed rgba(0,0,0,0.1);
+	padding-bottom: 14px;
+	margin-top: 24px;
+}
+.product:last-child
+{
+	border-bottom: 0px !important;
+}
+.productImage
+{
+	width: 150px;
+}
+.productImage img
+{
+	width: 150px;
+}
+.productInfo
+{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 10px 0px;
+}
+.spanProductTitle
+{
+	font-size: 18px;
+	font-weight: bold;
+}
+.spanPrice
+{
+	color: #00b600;
+}
+.spanProductContent
+{
+	font-size: 14px;
+}
+.productButton
+{
+	width: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.productButton input
+{
+	background-color: #b80000;
+    border: 0;
+    border-radius: 3px;
+	color: yellow;
+	height: 30px;
+	width: 100px;
+	outline: 0;
+	cursor: pointer;
+}
+.productButton input:active
+{
+	opacity: 0.7;
+}
+.disable
+{
+    pointer-events: none;
+    opacity: 0.3;
+}
+.modalBackground, .modalBackgroundCloseOrder
+{
+	position: absolute;
+	background-color: rgba(0,0,0,0.4);
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: none;
+}
+.modal, .modalCloseOrder
+{
+	background-color: white;
+	width: 400px;
+}
+.orderModal
+{
+	padding: 12px;
+}
+.modalOrderHeader
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 12px;
+}
+.totalModal
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 24px;
+}
+#spanTotalModal
+{
+	color: #00b600;
+	font-size: 24px;
+}
+.modalHeader
+{
+	display: flex;
+	justify-content: space-between;
+	background-color: #b80000;
+	color: white;
+	padding: 12px;
+	font-weight: bold;
+}
+#spanTitleProduct
+{
+	font-size: 20px;
+}
+.btnCloseModal
+{
+	cursor: pointer;
+	padding: 3px;
+}
+.additionalPreview
+{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-top: 12px;
+}
+#spanDescriptionProduct
+{
+	font-size: 14px;
+}
+.additionalImage
+{
+	width: 100px;
+}
+.additionalPreviewInfo
+{
+	display: flex;
+	flex-direction: column;
+}
+.divAdditional
+{
+	margin-top: 24px;
+	padding: 0px 12px;
+}
+.additionalTitle
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 24px;
+}
+.additional
+{
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+}
+.additionalPrice
+{
+	font-size: 12px;
+	color: #00b600;
+}
+.inputAmount
+{
+	width: 40px;
+    height: 19px;
+    text-align: center;
+    margin: 0px 6px;
+}
+.buttonMinus:active, .buttonSum:active
+{
+	opacity: 0.8;
+}
+.buttonMinus, .buttonSum
+{
+	width: 25px;
+	height: 25px;
+	border: 0px;
+	outline: 0px;
+	border-radius: 2px;
+	cursor: pointer;
+	color: white;
+}
+.buttonMinus
+{
+	background-color: #D90000;
+}
+.buttonSum
+{
+	background-color: #289228;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.modalFooter
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 24px;
+    margin-bottom: 24px;
+}
+.addCart
+{
+	background-color: #b80000;
+    border: 0;
+    border-radius: 3px;
+	color: yellow;
+	height: 30px;
+	width: 80%;
+	outline: 0;
+	cursor: pointer;
+	margin-top: 24px;
+}
+.addCart:active
+{
+	opacity: 0.8;
+}
+#modalSubTotal
+{
+	color: #00b600;
+    font-size: 22px;
+}
+.cartProduct
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+}
+.cartProduct:last-child
+{
+	border-bottom: 0px !important;
+}
+.cartPriceProduct
+{
+	color: #00b600;
+	font-size: 12px;
+}
+.cartNameProduct
+{
+	font-size: 14px;
+}
+.deleteCartProduct
+{
+	font-size: 12px;
+	color: red;
+	cursor: pointer;
+	padding: 3px;
+}
+.deleteCartProduct:active
+{
+	opacity: 0.8;
+}
