@@ -1,144 +1,103 @@
 package br.com.startup;
 
-import static org.junit.Assert.assertEquals;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class LanchesStartupApplicationTests {
+public class LanchesStartupApplicationTests
+{
+	@Autowired
+	private WebApplicationContext webApplicationContext;
+
+	private MockMvc mockMvc;
+
+	@Before
+	public void setup() {
+		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+	}
 
 	@Test
-	public void contextLoads() {
+	public void testXBacon() throws Exception
+	{
+		mockMvc.perform(get("/xbacon")).andExpect(status().isOk())
+				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(jsonPath("$.valor").value("6.5"));
 	}
 	
 	@Test
-	public void xbacon()
+	public void testXBurguer() throws Exception
 	{
-		Lanche lanche = new Lanche(0, "X-Bacon", "Bacon, hambÃºrguer de carne e queijo.", "images/x-bacon.jpg");
-		lanche.addIngrediente(Constants.ALFACE_ID, "alface", "Alface", 0, Constants.ALFACE_PRICE);
-		lanche.addIngrediente(Constants.BACON_ID, "bacon", "Bacon", 1, Constants.BACON_PRICE);
-		lanche.addIngrediente(Constants.OVO_ID, "ovo", "Ovo", 0, Constants.OVO_PRICE);
-		lanche.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "HambÃºguer de carne", 1, Constants.HAMBURGUER_PRICE);
-		lanche.addIngrediente(Constants.QUEIJO_ID, "queijo", "Queijo", 1, Constants.QUEIJO_PRICE);
-		lanche.computePrice();
-		
-		assertEquals(6.5, lanche.getValor());
+		mockMvc.perform(get("/xburguer")).andExpect(status().isOk())
+				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(jsonPath("$.valor").value("4.5"));
 	}
 	
 	@Test
-	public void xburguer()
+	public void testXEgg() throws Exception
 	{
-		Lanche lanche = new Lanche(0, "X-Burger", "HambÃºrguer de carne e queijo.", "images/x-burguer.jpg");
-		lanche.addIngrediente(Constants.ALFACE_ID, "alface", "Alface", 0, Constants.ALFACE_PRICE);
-		lanche.addIngrediente(Constants.BACON_ID, "bacon", "Bacon", 0, Constants.BACON_PRICE);
-		lanche.addIngrediente(Constants.OVO_ID, "ovo", "Ovo", 0, Constants.OVO_PRICE);
-		lanche.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "HambÃºguer de carne", 1, Constants.HAMBURGUER_PRICE);
-		lanche.addIngrediente(Constants.QUEIJO_ID, "queijo", "Queijo", 1, Constants.QUEIJO_PRICE);
-		lanche.computePrice();
-		
-		assertEquals(4.5, lanche.getValor());
+		mockMvc.perform(get("/xegg")).andExpect(status().isOk())
+				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(jsonPath("$.valor").value("5.3"));
 	}
 	
 	@Test
-	public void xegg()
+	public void testXEggBacon() throws Exception
 	{
-		Lanche lanche = new Lanche(0, "X-Egg", "Ovo, hambÃºrguer de carne e queijo.", "images/x-egg.jpg");
-		lanche.addIngrediente(Constants.ALFACE_ID, "alface", "Alface", 0, Constants.ALFACE_PRICE);
-		lanche.addIngrediente(Constants.BACON_ID, "bacon", "Bacon", 0, Constants.BACON_PRICE);
-		lanche.addIngrediente(Constants.OVO_ID, "ovo", "Ovo", 1, Constants.OVO_PRICE);
-		lanche.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "HambÃºguer de carne", 1, Constants.HAMBURGUER_PRICE);
-		lanche.addIngrediente(Constants.QUEIJO_ID, "queijo", "Queijo", 1, Constants.QUEIJO_PRICE);
-		lanche.computePrice();
-		
-		assertEquals(5.3, lanche.getValor());
+		mockMvc.perform(get("/xeggbacon")).andExpect(status().isOk())
+				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(jsonPath("$.valor").value("7.3"));
 	}
 	
 	@Test
-	public void xeggbacon()
+	public void testLight() throws Exception
 	{
-		Lanche lanche = new Lanche(0, "X-Egg Bacon", "Ovo, bacon, hambÃºrguer de carne e queijo.", "images/x-egg bacon.jpg");
-		lanche.addIngrediente(Constants.ALFACE_ID, "alface", "Alface", 0, Constants.ALFACE_PRICE);
-		lanche.addIngrediente(Constants.BACON_ID, "bacon", "Bacon", 1, Constants.BACON_PRICE);
-		lanche.addIngrediente(Constants.OVO_ID, "ovo", "Ovo", 1, Constants.OVO_PRICE);
-		lanche.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "HambÃºguer de carne", 1, Constants.HAMBURGUER_PRICE);
-		lanche.addIngrediente(Constants.QUEIJO_ID, "queijo", "Queijo", 1, Constants.QUEIJO_PRICE);
-		lanche.computePrice();
-		
-		assertEquals(7.3, lanche.getValor());
+		mockMvc.perform(get("/light")).andExpect(status().isOk())
+				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(jsonPath("$.valor").value("4.41"));
 	}
 	
 	@Test
-	public void light()
+	public void testMuitaCarne() throws Exception
 	{
-		Lanche lanche = new Lanche(0, "Light", "", "");
-		lanche.addIngrediente(Constants.ALFACE_ID, "alface", "Alface", 1, Constants.ALFACE_PRICE);
-		lanche.addIngrediente(Constants.BACON_ID, "bacon", "Bacon", 0, Constants.BACON_PRICE);
-		lanche.addIngrediente(Constants.OVO_ID, "ovo", "Ovo", 0, Constants.OVO_PRICE);
-		lanche.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "HambÃºguer de carne", 1, Constants.HAMBURGUER_PRICE);
-		lanche.addIngrediente(Constants.QUEIJO_ID, "queijo", "Queijo", 1, Constants.QUEIJO_PRICE);
-		lanche.computePrice();
-		
-		assertEquals(4.41, lanche.getValor());
+		mockMvc.perform(get("/muitaCarne")).andExpect(status().isOk())
+				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(jsonPath("$.valor").value("7.5"));
 	}
 	
 	@Test
-	public void muitaCarne()
+	public void testMuitoQueijo() throws Exception
 	{
-		Lanche lanche = new Lanche(0, "MuitaCarne", "", "");
-		lanche.addIngrediente(Constants.ALFACE_ID, "alface", "Alface", 0, Constants.ALFACE_PRICE);
-		lanche.addIngrediente(Constants.BACON_ID, "bacon", "Bacon", 0, Constants.BACON_PRICE);
-		lanche.addIngrediente(Constants.OVO_ID, "ovo", "Ovo", 0, Constants.OVO_PRICE);
-		lanche.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "HambÃºguer de carne", 3, Constants.HAMBURGUER_PRICE);
-		lanche.addIngrediente(Constants.QUEIJO_ID, "queijo", "Queijo", 1, Constants.QUEIJO_PRICE);
-		lanche.computePrice();
-		
-		assertEquals(7.5, lanche.getValor());
+		mockMvc.perform(get("/muitoQueijo")).andExpect(status().isOk())
+				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(jsonPath("$.valor").value("6.0"));
 	}
 	
 	@Test
-	public void muitoQueijo()
+	public void testGeral() throws Exception
 	{
-		Lanche lanche = new Lanche(0, "MuitoQueijo", "", "");
-		lanche.addIngrediente(Constants.ALFACE_ID, "alface", "Alface", 0, Constants.ALFACE_PRICE);
-		lanche.addIngrediente(Constants.BACON_ID, "bacon", "Bacon", 0, Constants.BACON_PRICE);
-		lanche.addIngrediente(Constants.OVO_ID, "ovo", "Ovo", 0, Constants.OVO_PRICE);
-		lanche.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "HambÃºguer de carne", 1, Constants.HAMBURGUER_PRICE);
-		lanche.addIngrediente(Constants.QUEIJO_ID, "queijo", "Queijo", 3, Constants.QUEIJO_PRICE);
-		lanche.computePrice();
-		
-		assertEquals(6.0, lanche.getValor());
-	}
-	
-	@Test
-	public void geral()
-	{
-		Lanche lanche = new Lanche(0, "MuitoQueijo", "", "");
-		lanche.addIngrediente(Constants.ALFACE_ID, "alface", "Alface", 1, Constants.ALFACE_PRICE);
-		lanche.addIngrediente(Constants.BACON_ID, "bacon", "Bacon", 1, Constants.BACON_PRICE);
-		lanche.addIngrediente(Constants.OVO_ID, "ovo", "Ovo", 1, Constants.OVO_PRICE);
-		lanche.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "HambÃºguer de carne", 1, Constants.HAMBURGUER_PRICE);
-		lanche.addIngrediente(Constants.QUEIJO_ID, "queijo", "Queijo", 1, Constants.QUEIJO_PRICE);
-		lanche.computePrice();
-		
-		assertEquals(7.7, lanche.getValor());
-	}
-	
-	@Test
-	public void geralX2()
-	{
-		Lanche lanche = new Lanche(0, "MuitoQueijo", "", "");
-		lanche.addIngrediente(Constants.ALFACE_ID, "alface", "Alface", 2, Constants.ALFACE_PRICE);
-		lanche.addIngrediente(Constants.BACON_ID, "bacon", "Bacon", 2, Constants.BACON_PRICE);
-		lanche.addIngrediente(Constants.OVO_ID, "ovo", "Ovo", 2, Constants.OVO_PRICE);
-		lanche.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "HambÃºguer de carne", 2, Constants.HAMBURGUER_PRICE);
-		lanche.addIngrediente(Constants.QUEIJO_ID, "queijo", "Queijo", 2, Constants.QUEIJO_PRICE);
-		lanche.computePrice();
-		
-		assertEquals(15.4, lanche.getValor());
+		mockMvc.perform(get("/geral")).andExpect(status().isOk())
+				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(jsonPath("$.valor").value("7.7"));
 	}
 
+	@Test
+	public void testGeralx2() throws Exception
+	{
+		mockMvc.perform(get("/geralx2")).andExpect(status().isOk())
+				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(jsonPath("$.valor").value("15.4"));
+	}
 }

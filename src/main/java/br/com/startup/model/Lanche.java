@@ -1,9 +1,13 @@
-package br.com.startup;
+package br.com.startup.model;
 
 import java.util.HashMap;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import br.com.startup.Constants;
 
 public class Lanche
 {
@@ -11,6 +15,7 @@ public class Lanche
 	private String name;
 	private String description;
 	private String image;
+	@JsonIgnore
 	private HashMap<Integer, Ingrediente> ingredientes = new HashMap<Integer, Ingrediente>();
 	private double valor;
 	
@@ -47,6 +52,7 @@ public class Lanche
 	}
 	
 	//This method return all the info about this lanche in JSON format
+	@JsonIgnore
 	public JSONObject getLancheJson() throws JSONException
 	{
 		JSONObject json = new JSONObject();
@@ -76,4 +82,8 @@ public class Lanche
 	public String getDescription() { return description; }
 	
 	public String getImage() { return image; }
+
+	public HashMap<Integer, Ingrediente> getIngredientes() {
+		return ingredientes;
+	}
 }

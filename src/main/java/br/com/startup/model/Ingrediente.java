@@ -1,4 +1,4 @@
-package br.com.startup;
+package br.com.startup.model;
 
 import org.json.JSONException;
 import org.json.JSONObject;
