@@ -1,5 +1,3 @@
-# lanchesstartup
-
 Aplicação web para gerir uma lanchonete.
 
 # Relatório design do código
