@@ -22,7 +22,7 @@ Aplicação web para gerir uma lanchonete.
 # Rodar imagem do docker
 
  - Instalar o Docker
- - Abrir o console ou terminal e rodar o comando "docker run -p 8080:8080 fernandosoldera/lanchesstartup:1.0"
+ - Abrir o console ou terminal e rodar o comando "docker run -p 8080:8080 fernandosoldera/lanchesstartup:1.1"
  - Abrir o navegador na url "locahost:8080"
 
 # Importar e buildar o projeto
