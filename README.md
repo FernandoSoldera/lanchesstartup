@@ -22,6 +22,7 @@ Aplicação web para gerir uma lanchonete.
 # Rodar imagem do docker
 
  - Instalar o Docker
+ - Instalar Java 8
  - Abrir o console ou terminal e rodar o comando "docker run -p 8080:8080 fernandosoldera/lanchesstartup:1.1"
  - Abrir o navegador na url "locahost:8080"
 
@@ -29,6 +30,7 @@ Aplicação web para gerir uma lanchonete.
 
  - Baixar e instalar o Maven https://maven.apache.org/download.cgi
  - Instalar o Docker
+ - Instalar Java 8
  - Baixar o projeto "git clone https://github.com/FernandoSoldera/lanchesstartup.git"
  - Importar projeto no eclipse (File > Import > Existing Maven Projec), procurar a pasta que foi clonado o projeto.
  - Rodar o projeto (RUN as -> Spring Boot App), caso sua IDE não possua esse run, basta instalar o plugin do Spring Boot.
