@@ -2,7 +2,7 @@
 
 Aplicação web para gerir uma lanchonete.
 
-# Relatório Design do Código
+# Relatório design do código
 
  - Como a aplicação não possui nenhuma persistência de dados, utilizei uma classe de constantes para salvar os preços dos ingredientes. Essa classe também é uma solução para os problemas de inflação (preços mudam com uma frequência alta), pois todo o código utiliza essas constantes nos cálculos, inclusive os testes.
  - Eu deixei os lanches e os ingredientes sendo criados totalmente no backend, fazendo com que o frontend fique genérico, e apenas coloque na tela as informações que foram passadas pelo backend. Este modelo facilita uma expansão do projeto, onde basta adicionar um lanche ou um ingrediente apenas uma vez no backend, e o frontend irá adicionar nas respectivas listas.
@@ -10,9 +10,29 @@ Aplicação web para gerir uma lanchonete.
  - Todas as regras de negócios são calculadas em tempo real no backend, o que deixa a aplicação mais consistente.
  - No backend utilizei uma lista synchronized para o carrinho. Esta lista consegue previnir possíveis problemas de concorrência, que possam ter com requisições simultâneas.
 
-# Importar o projeto
+# Tecnologias
 
- - Baixar o Maven https://maven.apache.org/download.cgi, extrair a pasta e depois colocar a pasta bin no Path das variáveis de ambiente.
- - Baixar o projeto https://github.com/FernandoSoldera/lanchesstartup
- - Importar projeto no eclipse (File > Import > Existing Maven Projec).
- - 
+ - HTML
+ - CSS
+ - JavaScript
+ - Java 8
+ - Mavenloca
+ - Spring Boot
+ - Docker
+ - Junit
+ 
+# Rodar imagem do docker
+
+ - Instalar o Docker
+ - Abrir o console ou terminal e rodar o comando "docker run -p 8080:8080 fernandosoldera/lanchesstartup:1.0"
+ - Abrir o navegador na url "locahost:8080"
+
+# Importar e buildar o projeto
+
+ - Baixar e instalar o Maven https://maven.apache.org/download.cgi
+ - Instalar o Docker
+ - Baixar o projeto "git clone https://github.com/FernandoSoldera/lanchesstartup.git"
+ - Importar projeto no eclipse (File > Import > Existing Maven Projec), procurar a pasta que foi clonado o projeto.
+ - Rodar o projeto (RUN as -> Spring Boot App), caso sua IDE não possua esse run, basta instalar o plugin do Spring Boot.
+ - Para gerar uma nova versão do projeto rodar o comando "mvn clean package" na raíz do projeto. Quando gerar essa versão os testes serão automaticamente rodados. Também pode rodar os testes manualmente através do (RUN as -> Junit tests) na classe LanchesStartupApplicationTests.java.
+ - Ao gerar uma nova versão pode se criar uma imagem docker com o comando (mvn docker:build) na raíz do projeto. Criando uma imagem com o nome de fernandosoldera/lanchesstartup.
