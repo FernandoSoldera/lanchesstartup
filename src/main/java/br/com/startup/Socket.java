@@ -76,7 +76,7 @@ public class Socket extends TextWebSocketHandler
 			lanche.addIngrediente(Constants.ALFACE_ID, "alface", "Alface", json.getInt("alface"), Constants.ALFACE_PRICE);
 			lanche.addIngrediente(Constants.BACON_ID, "bacon", "Bacon", json.getInt("bacon"), Constants.BACON_PRICE);
 			lanche.addIngrediente(Constants.OVO_ID, "ovo", "Ovo", json.getInt("ovo"), Constants.OVO_PRICE);
-			lanche.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "Hambuguer de carne", json.getInt("hamburguer"), Constants.HAMBURGUER_PRICE);
+			lanche.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "Hambúguer de carne", json.getInt("hamburguer"), Constants.HAMBURGUER_PRICE);
 			lanche.addIngrediente(Constants.QUEIJO_ID, "queijo", "Queijo", json.getInt("queijo"), Constants.QUEIJO_PRICE);
 			lanche.computePrice();
 			
@@ -127,35 +127,35 @@ public class Socket extends TextWebSocketHandler
 	//Method to create the menu json, this json will be used in frontend to fill the menu
 	private String createMenuJson() throws JSONException
 	{
-		Lanche xbacon = new Lanche(0, "X-Bacon", "Bacon, hamb�rguer de carne e queijo.", "images/x-bacon.jpg");
+		Lanche xbacon = new Lanche(0, "X-Bacon", "Bacon, hambúrguer de carne e queijo.", "images/x-bacon.jpg");
 		xbacon.addIngrediente(Constants.ALFACE_ID, "alface", "Alface", 0, Constants.ALFACE_PRICE);
 		xbacon.addIngrediente(Constants.BACON_ID, "bacon", "Bacon", 1, Constants.BACON_PRICE);
 		xbacon.addIngrediente(Constants.OVO_ID, "ovo", "Ovo", 0, Constants.OVO_PRICE);
-		xbacon.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "Hambuguer de carne", 1, Constants.HAMBURGUER_PRICE);
+		xbacon.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "Hambúguer de carne", 1, Constants.HAMBURGUER_PRICE);
 		xbacon.addIngrediente(Constants.QUEIJO_ID, "queijo", "Queijo", 1, Constants.QUEIJO_PRICE);
 		xbacon.computePrice();
 		
-		Lanche xburguer = new Lanche(0, "X-Burger", "Hamb�rguer de carne e queijo.", "images/x-burguer.jpg");
+		Lanche xburguer = new Lanche(0, "X-Burger", "Hambúrguer de carne e queijo.", "images/x-burguer.jpg");
 		xburguer.addIngrediente(Constants.ALFACE_ID, "alface", "Alface", 0, Constants.ALFACE_PRICE);
 		xburguer.addIngrediente(Constants.BACON_ID, "bacon", "Bacon", 0, Constants.BACON_PRICE);
 		xburguer.addIngrediente(Constants.OVO_ID, "ovo", "Ovo", 0, Constants.OVO_PRICE);
-		xburguer.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "Hambuguer de carne", 1, Constants.HAMBURGUER_PRICE);
+		xburguer.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "Hambúguer de carne", 1, Constants.HAMBURGUER_PRICE);
 		xburguer.addIngrediente(Constants.QUEIJO_ID, "queijo", "Queijo", 1, Constants.QUEIJO_PRICE);
 		xburguer.computePrice();
 		
-		Lanche xegg = new Lanche(0, "X-Egg", "Ovo, hamb�rguer de carne e queijo.", "images/x-egg.jpg");
+		Lanche xegg = new Lanche(0, "X-Egg", "Ovo, hambúrguer de carne e queijo.", "images/x-egg.jpg");
 		xegg.addIngrediente(Constants.ALFACE_ID, "alface", "Alface", 0, Constants.ALFACE_PRICE);
 		xegg.addIngrediente(Constants.BACON_ID, "bacon", "Bacon", 0, Constants.BACON_PRICE);
 		xegg.addIngrediente(Constants.OVO_ID, "ovo", "Ovo", 1, Constants.OVO_PRICE);
-		xegg.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "Hambuguer de carne", 1, Constants.HAMBURGUER_PRICE);
+		xegg.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "Hambúguer de carne", 1, Constants.HAMBURGUER_PRICE);
 		xegg.addIngrediente(Constants.QUEIJO_ID, "queijo", "Queijo", 1, Constants.QUEIJO_PRICE);
 		xegg.computePrice();
 		
-		Lanche xeggbacon = new Lanche(0, "X-Egg Bacon", "Ovo, bacon, hamb�rguer de carne e queijo.", "images/x-egg bacon.jpg");
+		Lanche xeggbacon = new Lanche(0, "X-Egg Bacon", "Ovo, bacon, hambúrguer de carne e queijo.", "images/x-egg bacon.jpg");
 		xeggbacon.addIngrediente(Constants.ALFACE_ID, "alface", "Alface", 0, Constants.ALFACE_PRICE);
 		xeggbacon.addIngrediente(Constants.BACON_ID, "bacon", "Bacon", 1, Constants.BACON_PRICE);
 		xeggbacon.addIngrediente(Constants.OVO_ID, "ovo", "Ovo", 1, Constants.OVO_PRICE);
-		xeggbacon.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "Hambuguer de carne", 1, Constants.HAMBURGUER_PRICE);
+		xeggbacon.addIngrediente(Constants.HAMBURGUER_ID, "hamburguer", "Hambúguer de carne", 1, Constants.HAMBURGUER_PRICE);
 		xeggbacon.addIngrediente(Constants.QUEIJO_ID, "queijo", "Queijo", 1, Constants.QUEIJO_PRICE);
 		xeggbacon.computePrice();
 		
@@ -181,7 +181,7 @@ public class Socket extends TextWebSocketHandler
 	{
 		Ingrediente alface = new Ingrediente(Constants.ALFACE_ID, "alface", "Alface", 0, Constants.ALFACE_PRICE);
 		Ingrediente bacon = new Ingrediente(Constants.BACON_ID, "bacon", "Bacon", 1, Constants.BACON_PRICE);
-		Ingrediente hamburguer = new Ingrediente(Constants.HAMBURGUER_ID, "hamburguer", "Hambuguer de carne", 1, Constants.HAMBURGUER_PRICE);
+		Ingrediente hamburguer = new Ingrediente(Constants.HAMBURGUER_ID, "hamburguer", "Hambúguer de carne", 1, Constants.HAMBURGUER_PRICE);
 		Ingrediente ovo = new Ingrediente(Constants.OVO_ID, "ovo", "Ovo", 0, Constants.OVO_PRICE);
 		Ingrediente queijo = new Ingrediente(Constants.QUEIJO_ID, "queijo", "Queijo", 1, Constants.QUEIJO_PRICE);
 	
